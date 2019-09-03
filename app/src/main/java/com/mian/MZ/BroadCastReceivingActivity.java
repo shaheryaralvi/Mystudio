@@ -36,6 +36,7 @@ public class BroadCastReceivingActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
+        /// on stop /////
         super.onStop();
         unregisterReceiver(broadCastReceiver);
 

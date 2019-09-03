@@ -51,7 +51,6 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 SignupFormValidation();
             }
         });
@@ -119,6 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
         {
             Toast.makeText(SignUpActivity.this, "Must click the check button.", Toast.LENGTH_SHORT).show();
         }
+
 
         return isValid;
     }
