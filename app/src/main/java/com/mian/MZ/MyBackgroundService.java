@@ -25,13 +25,20 @@ public class MyBackgroundService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
-
+     //   throw new UnsupportedOperationException("Not yet implemented");
+    return  null;
     }
 
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        });
+//        thread.start();
 
         mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.songs);
         finalTime=mediaPlayer.getDuration();
@@ -50,7 +57,7 @@ public class MyBackgroundService extends Service {
 
 
 
-        return START_STICKY;
+        return START_REDELIVER_INTENT;
     }
 
     @Override
@@ -59,7 +66,7 @@ public class MyBackgroundService extends Service {
         super.onDestroy();
 
         Log.e(TAG, "Service ended " );
-        mediaPlayer.stop();
+       mediaPlayer.stop();
         timer.cancel();
         timerTask.cancel();
     }

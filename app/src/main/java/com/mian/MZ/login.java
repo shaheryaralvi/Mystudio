@@ -77,8 +77,7 @@ public class login extends AppCompatActivity {
 
                     editor.putBoolean("loggedIn", true).apply();
 
-                    startService(new Intent(getApplicationContext(), MyBackgroundService.class));
-
+//                    startService(new Intent(getApplicationContext(), MyBackgroundService.class));
                     startActivity(intent);
                     finish();
                 }
