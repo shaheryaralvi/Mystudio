@@ -2,6 +2,7 @@ package com.mian.MZ;
 
 import android.app.Service;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -16,6 +17,8 @@ public class MyBackgroundService extends Service {
     int counter;
     Timer timer ;
     TimerTask timerTask ;
+    MediaPlayer mediaPlayer;
+    double finalTime,startTime;
     public MyBackgroundService() {
     }
 
@@ -30,6 +33,9 @@ public class MyBackgroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.songs);
+        finalTime=mediaPlayer.getDuration();
+        mediaPlayer.start();
         counter = 0;
         Log.e(TAG, "Service started " );
         timer = new Timer();
@@ -53,6 +59,7 @@ public class MyBackgroundService extends Service {
         super.onDestroy();
 
         Log.e(TAG, "Service ended " );
+        mediaPlayer.stop();
         timer.cancel();
         timerTask.cancel();
     }

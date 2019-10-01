@@ -141,11 +141,13 @@ public class login extends AppCompatActivity {
         }
         if (login_email.length() > 0 && !isEmailValid(login_email.getText().toString())) {
             login_email.setError("Email is not valid!");
+            login_password.setFocusable(true);
             isValid = false;
         }
 
         if (login_password.length() == 0) {
             login_password.setError("Field is required!");
+            login_password.setFocusable(true);
             isValid = false;
         }
         if (login_password.length() < 6) {
